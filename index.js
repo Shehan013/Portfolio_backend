@@ -9,7 +9,7 @@ const Project = require('./Project');
 const Blog = require('./Blog');
 
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
+    res.send('Hello, World from Shehan!');
 });
 
 app.get('/projects', async (req, res) => {
@@ -38,8 +38,7 @@ app.post('/projects', async (req, res) => {
     
     const project = new Project({
         name: req.body.name,
-        description: req.body.description,
-        
+        description: req.body.description,      
     });
 
     try {
@@ -71,8 +70,7 @@ app.patch('/projects/:id', async (req, res) => {
         res.json(updatedProject);
     } catch (err) {
         res.status(404).json({ message: err.message });
-    }
-  
+    } 
 });
 
 //Delete a project by id
@@ -88,12 +86,6 @@ app.delete('/projects/:id', async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
-
-
-
-
-
-
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
