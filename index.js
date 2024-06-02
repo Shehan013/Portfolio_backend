@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const port = 5000;
 
+//allow cors
+const cors = require('cors');
+app.use(cors());
+
 app.use(express.json());    //This need to be above any routes that will use req.body
 
 require('dotenv').config();
